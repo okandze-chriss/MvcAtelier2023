@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Liste des clients</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr class="bg-tr">
         <th>
             @Html.DisplayNameFor(model => model.NomPers)
         </th>
@@ -24,7 +24,15 @@
         <th>
             @Html.DisplayNameFor(model => model.EmailPers)
         </th>
-        <th></th>
+        <th>
+            Editer 
+        </th>
+        <th>
+            Details
+        </th>
+        <th>
+            Delete
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -42,9 +50,15 @@
             @Html.DisplayFor(modelItem => item.EmailPers)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPers }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPers }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPers })
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdPers }) 
+        </td>
+
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.IdPers })
+        </td>
+
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdPers })
         </td>
     </tr>
 }

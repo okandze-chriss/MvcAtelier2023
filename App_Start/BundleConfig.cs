@@ -34,7 +34,8 @@ namespace MvcGLAtelelier2023
 
             bundles.Add(new StyleBundle("~/asset/css").Include(
                       "~/asset/vendor/fontawesome-free/css/all.min.css",
-                      "~/asset/css/sb-admin-2.min.css"
+                      "~/asset/css/sb-admin-2.min.css",
+                      "~/asset/css/app.css"
                       ));
         }
     }

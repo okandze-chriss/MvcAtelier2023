@@ -7,12 +7,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcGLAtelelier2023.Models
 {
-    public class Personne
+    public class Gerant
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IdPers { get; set; }
+
+        [Display(Name="Matricule")]
+        public String Matricule { get; set; }
+
+
+    }
+
+    public class GerantVeiwModel
     {
         [Key]
         public int IdPers { get; set; }
 
-        [Display(Name ="Nom"), MaxLength(80, ErrorMessage ="Taille maximale 80"), Required(ErrorMessage ="*")]
+        [Display(Name = "Nom"), MaxLength(80, ErrorMessage = "Taille maximale 80"), Required(ErrorMessage = "*")]
         public string NomPers { get; set; }
 
         [Display(Name = "Prénom"), MaxLength(80, ErrorMessage = "Taille maximale 80"), Required(ErrorMessage = "*")]
@@ -25,9 +36,13 @@ namespace MvcGLAtelelier2023.Models
         [Display(Name = "Email"), MaxLength(150, ErrorMessage = "Taille maximale 150"), Required(ErrorMessage = "*")]
         public string EmailPers { get; set; }
 
-        //[DataType(DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber), RegularExpression("^([76-78]{2})([0-9]{7})$", ErrorMessage ="Le numéro doit commencer par (76|77|78) et 9 caracteres au total")]
         [Display(Name = "Téléphone"), MaxLength(20, ErrorMessage = "Taille maximale 20"), Required(ErrorMessage = "*")]
         public string TelPers { get; set; }
+
+        //[Display(Name = "Matricule")]
+        //public String Matricule { get; set; }
+
 
     }
 }
