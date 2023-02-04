@@ -1,6 +1,8 @@
 ﻿using MvcGLAtelelier2023.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,12 +12,46 @@ namespace MvcGLAtelelier2023.Controllers
     public class GerantController : Controller
     {
         private bdAtelier2023Context db = new bdAtelier2023Context();
+        int pageSize = 2;
 
         // GET: Gerant/Create
         public ActionResult Create()
         {
             return View();
         }
+
+        public ActionResult ListerGerant(int? page)
+        {
+            page = page.HasValue ? page : 1;
+            var liste = getListGerant();
+
+            int pageNumber = (page ?? 1);
+            return View(liste.ToPagedList(pageNumber, pageSize));
+        }
+
+
+        private List<GerantVeiwModel> getListGerant()
+        {
+            List<GerantVeiwModel> lister = new List<GerantVeiwModel>();
+            var liste = db.gerants.Join(db.personnes, x => x.IdPers, y => y.IdPers, (x, y) =>
+            new { x.IdPers, y.AdressePers, y.EmailPers, y.PrenomPers, y.NomPers, y.TelPers }).ToList();
+
+
+            foreach (var item in liste)
+            {
+                GerantVeiwModel g = new GerantVeiwModel();
+                g.TelPers = item.TelPers;
+                g.PrenomPers = item.PrenomPers;
+                g.NomPers = item.NomPers;
+                g.IdPers = item.IdPers;
+                g.EmailPers = item.EmailPers;
+                g.AdressePers = item.AdressePers;
+                lister.Add(g);
+            }
+
+            return lister;
+        }
+
 
         // POST: Gerant/Create
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
@@ -42,7 +78,7 @@ namespace MvcGLAtelelier2023.Controllers
                 db.gerants.Add(g);
                 db.SaveChanges();
 
-                return RedirectToRoute("index");
+                return RedirectToRoute("ListerGerant");
             }
 
             return View(gerant);

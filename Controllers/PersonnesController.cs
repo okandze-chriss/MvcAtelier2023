@@ -7,17 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcGLAtelelier2023.Models;
+using PagedList;
 
 namespace MvcGLAtelelier2023.Controllers
 {
     public class PersonnesController : Controller
     {
         private bdAtelier2023Context db = new bdAtelier2023Context();
+        int pageSize = 4;
 
         // GET: Personnes
-        public ActionResult Index()
+        public ActionResult Index(int? page, string searchString)
         {
-            return View(db.personnes.ToList());
+            page = page.HasValue ? page: 1;
+            var liste = db.personnes.ToList();
+            ViewBag.searchString = searchString;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                liste = liste.Where(a => a.NomPers.ToUpper().Contains(searchString.ToUpper())).ToList();
+            }
+
+            int pageNumber = (page ?? 1);
+            return View(liste.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Personnes/Details/5

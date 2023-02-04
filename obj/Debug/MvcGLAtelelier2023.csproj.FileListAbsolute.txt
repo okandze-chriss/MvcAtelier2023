@@ -69,6 +69,8 @@ D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\Microsoft.Owin.Security.Tw
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\Microsoft.Web.Infrastructure.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\Newtonsoft.Json.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\Owin.dll
+D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\PagedList.dll
+D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\PagedList.Mvc.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Helpers.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Mvc.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Optimization.dll
@@ -77,6 +79,8 @@ D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.WebPages.Deploy
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.WebPages.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.WebPages.Razor.dll
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\WebGrease.dll
+D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\PagedList.xml
+D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\PagedList.Mvc.xml
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Helpers.xml
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Mvc.xml
 D:\Technologies\ASP.NET\GL2022\MvcGLAtelelier2023\bin\System.Web.Optimization.xml

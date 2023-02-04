@@ -12,7 +12,10 @@ namespace MvcGLAtelelier2023.Controllers
         private bdAtelier2023Context bd = new bdAtelier2023Context();
         public ActionResult Index()
         {
-            ViewBag.Count = bd.personnes.Count();
+            ViewBag.Users = bd.personnes.Count();
+            ViewBag.Gerants = bd.gerants.Count();
+            ViewBag.Clients = bd.clients.Count();
+
             return View();
         }
 

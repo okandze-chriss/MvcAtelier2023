@@ -18,8 +18,5 @@ namespace MvcGLAtelelier2023.Models
         public DbSet<Client> clients { get; set; }
         public DbSet<Gerant> gerants { get; set; }
 
-        public System.Data.Entity.DbSet<MvcGLAtelelier2023.Models.ClientViewModel> ClientViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<MvcGLAtelelier2023.Models.GerantVeiwModel> GerantVeiwModels { get; set; }
     }
 }

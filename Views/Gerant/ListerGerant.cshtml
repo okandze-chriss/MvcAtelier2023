@@ -1,18 +1,18 @@
-﻿@model PagedList.IPagedList<MvcGLAtelelier2023.Models.Personne>
+﻿@model PagedList.IPagedList<MvcGLAtelelier2023.Models.GerantVeiwModel>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ListerGerant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Liste des users</h2>
+<h2>ListerGerant</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr class="bg-tr">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().NomPers)
         </th>
@@ -24,6 +24,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().EmailPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().TelPers)
         </th>
         <th>
             Editer
@@ -52,13 +55,14 @@
                 @Html.DisplayFor(modelItem => item.EmailPers)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.TelPers)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IdPers })
             </td>
-
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.IdPers })
             </td>
-
             <td>
                 @Html.ActionLink("Delete", "Delete", new { id = item.IdPers })
             </td>
@@ -71,6 +75,6 @@
 
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /  @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.searchString }))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
 
